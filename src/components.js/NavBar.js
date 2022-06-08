@@ -1,3 +1,4 @@
+import CartWidget from "./CartWidget.js"
 
 const NavBar = () => {
   return (
@@ -14,6 +15,9 @@ const NavBar = () => {
         <a class="nav-link" href="#">Productos</a>
         <a class="nav-link" href="#">Carrito</a>
         <a class="nav-link" href="#">Contacto</a>
+        <span class="material-symbols-outlined">
+add_shopping_cart
+</span>
       </div>
     </div>
   </div>
