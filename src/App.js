@@ -1,7 +1,10 @@
-import NavBar from "./components.js/NavBar";
-import CartWidget from "./components.js/CartWidget";
-import ItemListContainer from "./components.js/ItemCount";
-import ItemCount from "./components.js/ItemCount";
+import Header from "./components.js/Header"
+import Main from "./components.js/Main"
+import Footer from "./components.js/Footer"
+
+
+
+
 
 
 
@@ -9,10 +12,10 @@ import ItemCount from "./components.js/ItemCount";
 const App = ( ) => {
 return (
         <>
-      <NavBar/>  
-      <CartWidget/>
-      <ItemListContainer/>
-</>
+      <Header/>
+      <Main/>
+     <Footer/>
+      </>
 
     )
 }
