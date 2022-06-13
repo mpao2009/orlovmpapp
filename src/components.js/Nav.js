@@ -1,5 +1,4 @@
-
-
+import CartWidget  from "./CartWidget"
 const Nav = ({ inHeader, cosasParaMostrar, laClase }) => {
 
   return (
@@ -7,6 +6,7 @@ const Nav = ({ inHeader, cosasParaMostrar, laClase }) => {
       <a href="#">{inHeader ? "HOME" : "Facebook"}</a>
       <a href="#">{inHeader ? "TIENDA" : "Instagram"}</a>
       <a href="#">{inHeader ? "CONTACTO" : "Linkedin"}</a>
+     <CartWidget/>
       
     </nav>
   )

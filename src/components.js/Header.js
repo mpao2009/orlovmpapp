@@ -1,5 +1,7 @@
 import Nav from "./Nav";
 
+
+
 const Header = () => {
   return (
     <header>
@@ -9,8 +11,8 @@ const Header = () => {
       cosasParaMostrar={["link1", "link2", "link3"]}
       laClase="navbar-header"
       />
-    </header>
-  )
+    
+      </header>  )
 }
 
 export default Header
