@@ -1,6 +1,6 @@
 import Header from "./components.js/Header"
-import Main from "./components.js/Main"
 import Footer from "./components.js/Footer"
+import ItemListContainer from "./components.js/ItemListContainer"
 
 
 
@@ -11,13 +11,13 @@ import Footer from "./components.js/Footer"
 
 const App = ( ) => {
 return (
-        <>
+        < >
       <Header/>
-      <Main/>
-     <Footer/>
+      <ItemListContainer/>
+      <Footer/>
       </>
 
-    )
+    );
 }
 
-export default App
+export default App;

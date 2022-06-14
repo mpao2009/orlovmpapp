@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -29,11 +30,24 @@ body {
   }
 
   a{
-    text-decoration:none;
-    color:black;
-    padding: 10px;
-    
+    background-color:lightgray; 
+    border-radius: 10px;
+    color: black;
+    padding: 14px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+  
   }
+  a:hover{
+    background-color: lightcoral;
+    color: white;
+  }
+
+    
   img {
     width:40px;
     height:40px;
@@ -44,5 +58,4 @@ body {
     
     
   }
-  
   

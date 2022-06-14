@@ -1,7 +1,37 @@
-import { useEffect, useState } from "react"
+import React,{useState} from "react"
 
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+function ItemCount ({stock}){
+
+  const[count,setCount]=useState(0)
+  
+  function adding(){
+    if (count< stock){
+      setCount(count+1)
+    }
+  }
+
+  function subs (){
+    if(count > 0){
+      setCount(count-1)
+    }
+  }
+
+
+  return(
+    <div>
+      <button onClick={subs}>-</button>
+      <span>{count}</span>
+<button onClick={adding}>+</button>
+    </div>
+  )
+}
+
+
+export default ItemCount;
+
+
+/*const ItemCount = ({ stock, initial, onAdd }) => {
 
   const [contador, setContador] = useState(initial)
 
@@ -35,4 +65,4 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     </div>
   )
 }
-export default ItemCount
+export default ItemCount*/
