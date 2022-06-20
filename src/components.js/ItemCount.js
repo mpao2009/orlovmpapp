@@ -1,7 +1,9 @@
 import React,{useState} from "react"
+import style from "./ItemCount.module.css"
 
 
-function ItemCount ({stock}){
+
+function ItemCount ({initial,stock}){
 
   const[count,setCount]=useState(0)
   
@@ -17,52 +19,26 @@ function ItemCount ({stock}){
     }
   }
 
+  function addToCart (){
+    console.log("add to cart")
+}
+
 
   return(
     <div>
-      <button onClick={subs}>-</button>
+      <button className={style.button3} onClick={subs}>-</button>
       <span>{count}</span>
-<button onClick={adding}>+</button>
+      <button className={style.number} onClick={adding}>+</button>
+      <button className={style.button4} onClick={adding}>Add to Cart</button>
+      {
+        count > 0 ? <button className={style.button5} onClick={addToCart}>Buy</button> : <></>  //si el count es mayor a 0, se muestra el boton de comprar
+      }
     </div>
-  )
-}
+  );
+};
 
 
 export default ItemCount;
 
 
-/*const ItemCount = ({ stock, initial, onAdd }) => {
-
-  const [contador, setContador] = useState(initial)
-
-  console.log (contador)
-
-  useEffect(()=>{
-    
-    //console.log("Pidiendo usuarios...")
-
-  },[])
-
-  const aumentarContador = () => {
-    setContador(contador + 1)
-    
-  }
-
-  const bajarContador = () => {
-    setContador(contador - 1)
-  }
-
-  const confirmarContador = () => {
-    onAdd(contador ) 
-   }
-
-  return (
-    <div>
-      <p>CONTADOR : {contador}</p>
-      <button onClick={aumentarContador}>AUMENTAR</button>
-      <button onClick={bajarContador}>DISMINUIR</button>
-      <button onClick={confirmarContador}>CONFIRMAR</button>
-    </div>
-  )
-}
-export default ItemCount*/
+// Compare this snippet from src/components.js/ItemDetail.js:

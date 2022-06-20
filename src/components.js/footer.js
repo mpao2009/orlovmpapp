@@ -1,13 +1,17 @@
-import Nav from "./Nav"
+import Navbar from "./Navbar"
+
+
+
+
 
 const Footer = () => {
 
   return (
     <footer className="footer">
       <p>Copyright &copy;</p>
-      <Nav 
+      <Navbar
       inHeader={false} 
-      cosasParaMostrar={["facebook","instagram","linkedin"]}
+      
       laClase="navbar-footer"
       />
     </footer>

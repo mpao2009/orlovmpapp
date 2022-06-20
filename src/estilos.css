@@ -1,61 +1,68 @@
-
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-   header {
-    background-color: lightpink;
-  }
-  #root {
-    display: flex;
-    flex-direction:column;
-  }
-  html , body {
-    height:100vh;
-  }
-  .footer{
-    background-color: lightblue;
-  }
-  button{
-    background-color:lightgray;
-    border-radius:5px;
-    border:none;
-    padding:10px;
-    margin:10px;
-    font-size:15px;
-  }
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  a{
-    background-color:lightgray; 
-    border-radius: 10px;
-    color: black;
-    padding: 14px 28px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-    margin: 4px 2px;
-    cursor: pointer;
-  
-  }
-  a:hover{
-    background-color: lightcoral;
-    color: white;
-  }
+header {
+  background-color: lightpink;
+}
 
-    
-  img {
-    width:40px;
-    height:40px;
-    margin-left: 300px;
-    margin-top:10px;
-    margin-bottom: 30px;
-    
-    
-    
-  }
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+.footer {
+  background-color: lightblue;
+}
+
+button {
+  background-color: lightgray;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+}
+
+a {
+  background-color:rgb(244, 244, 11);
+  border-radius: 10px;
+  color: black;
+  padding: 14px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}
+
+a:hover {
+  background-color: lightcoral;
+  color: white;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.name{
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
   
+}

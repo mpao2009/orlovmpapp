@@ -8,5 +8,9 @@ import "./estilos.css"
 
 //Mostrar la App en el Dom
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
- 
+root.render(
+
+<React.StrictMode>
+    <App />
+</React.StrictMode>
+);

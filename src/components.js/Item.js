@@ -1,16 +1,27 @@
-import React from "react"
-import ItemCount from "./ItemCount"
-import style from "./item.module.css"
+import React from 'react'
+import {Link} from 'react-router-dom'
+import style from './Item.module.css'
 
+function Item({id, name, image, price}) {
+  return (
 
+    <div className={style.container}>
+    <h2>{name}</h2>
 
-function Item ({id,name,image,stock}){
-    return(
-        <div className={style.container}>
-        <h1>{name}</h1>
-        <img className={style.itemImage} src={image} alt={name} />
-        <ItemCount stock={stock}/>
-        </div>
-    )
+    <div className={style.card}>
+      <img src={image} alt={id} />
+     
+      <p className={style.price}>{price}</p>
+    
+      <Link className={style.buttonCard} to={`/detail/${id}`}>Ver Detalle</Link>
+    </div>
+    
+  </div>
+  )
 }
-export default Item;
+
+export default Item
+
+  
+
+

@@ -4,11 +4,11 @@ import React from 'react'
 const CartWidget = () => {
     
     return(
-        <>
-    <div>
+    
+    <div className='logo'>
         <img src='https://static.vecteezy.com/system/resources/previews/004/999/463/original/shopping-cart-icon-illustration-free-vector.jpg' class="logoAdjust"></img>
     </div>
-    </>
+    
     )
 
 }
