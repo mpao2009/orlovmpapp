@@ -1,16 +1,14 @@
 
-import Navbar from "./Navbar";
+
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="main-header">
       <Link to="/">
-      <h2>Tienda Online</h2>
+      <h4>Tienda Online</h4>
       </Link>
-      <Navbar
-      inHeader={true} 
-      laClase="navbar-header"
-      />
+      
       </header>
   )
 }
