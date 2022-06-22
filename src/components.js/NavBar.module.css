@@ -8,6 +8,9 @@ ul {
   
   li {
     float: left;
+    margin: 10px 25px;
+    
+    
     
   }
   
@@ -21,8 +24,5 @@ ul {
   
   li .linkClass:hover:not(.active) {
     background-color: #111;
-  }
-  .Navbar{
-    background-color: lightgrey;
   }
   

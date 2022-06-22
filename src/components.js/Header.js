@@ -1,20 +1,18 @@
-import CartWidget from "./CartWidget";
+
 import Navbar from "./Navbar";
-
-
-
 
 const Header = () => {
   return (
     <header className="main-header">
-      <h2>Tienda</h2>
-      <Navbar 
-      inHeader={true}
-      
+      <Link to="/">
+      <h2>Tienda Online</h2>
+      </Link>
+      <Navbar
+      inHeader={true} 
       laClase="navbar-header"
       />
-    <CartWidget/>
-      </header>  )
+      </header>
+  )
 }
 
-export default Header
+export default Header;

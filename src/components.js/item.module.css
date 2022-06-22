@@ -3,19 +3,12 @@ h2 {
 }
 .container {
     display: flex;
-
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    align-self: center;
-    margin: 0 auto;
 }
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    margin: auto;
+    max-width: 300px;
+    margin: 30px;
     text-align: center;
     font-family: arial;
   }
@@ -39,5 +32,14 @@ h2 {
   
   .card .buttonCard:hover {
     opacity: 0.7;
+  }
+
+  .img{
+    width: 100%;
+    height: auto;
+    
+
+    
+    
   }
   

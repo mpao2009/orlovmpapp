@@ -3,6 +3,8 @@ import {useParams} from 'react-router-dom'
 import { getProductsById } from '../utils/CustomFetch'
 import ItemDetail from './ItemDetail'
 
+
+
 function ItemDetailContainer() {
 
     const [product, setProduct] = useState()

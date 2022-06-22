@@ -1,16 +1,14 @@
 import React from 'react'
 
+function CartWidget() {
+  return (
+    <div>
+     <span class="material-symbols-outlined">
+shopping_cart
+</span>
 
-const CartWidget = () => {
-    
-    return(
-    
-    <div className='logo'>
-        <img src='https://static.vecteezy.com/system/resources/previews/004/999/463/original/shopping-cart-icon-illustration-free-vector.jpg' class="logoAdjust"></img>
     </div>
-    
-    )
-
+  )
 }
 
 export default CartWidget

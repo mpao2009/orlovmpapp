@@ -3,7 +3,7 @@ import style from "./ItemCount.module.css"
 
 
 
-function ItemCount ({initial,stock}){
+function ItemCount ({stock}){
 
   const[count,setCount]=useState(0)
   
@@ -19,19 +19,17 @@ function ItemCount ({initial,stock}){
     }
   }
 
-  function addToCart (){
-    console.log("add to cart")
-}
+  
 
 
   return(
     <div>
       <button className={style.button3} onClick={subs}>-</button>
-      <span>{count}</span>
-      <button className={style.number} onClick={adding}>+</button>
-      <button className={style.button4} onClick={adding}>Add to Cart</button>
+      <span className={style.number}>{count}</span>
+      <button className={style.button4} onClick={adding}>+</button>
+      
       {
-        count > 0 ? <button className={style.button5} onClick={addToCart}>Buy</button> : <></>  //si el count es mayor a 0, se muestra el boton de comprar
+        count > 0 ? <button className={style.button5}>Add to Cart</button> : <></>  //si el count es mayor a 0, se muestra el boton de comprar
       }
     </div>
   );
