@@ -69,6 +69,11 @@ img {
 }
 .material-symbols-outlined {
   font-size: 300%;
-  color: white;
-  margin: 15px;
+  color: red;
+  margin: 5px;
 }
+.material-symbols-outlined:hover {
+  color: blue;
+}
+
+

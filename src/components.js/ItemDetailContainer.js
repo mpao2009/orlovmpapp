@@ -10,7 +10,7 @@ function ItemDetailContainer() {
     const [product, setProduct] = useState()
 
     const { id } = useParams()
-    console.log(typeof id)
+    //console.log(typeof id)
 
   useEffect(() => {
     getProductsById(parseInt(id))

@@ -4,9 +4,8 @@ import Header from './components.js/Header';
 import "./App.css";
 import ItemListContainer from './components.js/ItemListContainer';
 import ItemDetailContainer from './components.js/ItemDetailContainer';
-
-
-
+import Carrito from './components.js/Carrito';
+import Checkout from './components.js/Checkout';
 
 
 
@@ -18,12 +17,15 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Header/>
+        
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/detail/:id" element={<ItemDetailContainer />} />
+          <Route path="/Carrito" element={<Carrito/>}/>
+          <Route path="/Checkout" element={<Checkout/>}/>
         </Routes>
-      
+        
       </BrowserRouter>
     </div>
   );

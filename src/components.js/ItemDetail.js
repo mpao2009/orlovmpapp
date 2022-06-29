@@ -3,8 +3,15 @@ import ItemCount from './ItemCount'
 import style from './ItemDetail.module.css'
 
 
+
 function ItemDetail({name, id, descripcion, stock, price, image}) {
-  return (
+ const onAdd = (cantidadSeleccionada) => {
+    console.log(cantidadSeleccionada 
+        + " agregado al carrito" + name)
+ }
+
+ 
+return (
 
     <div className={style.coupon}>
     <div className={style.container}>
@@ -15,8 +22,8 @@ function ItemDetail({name, id, descripcion, stock, price, image}) {
         <h2><b>$ {price}</b></h2> 
         <p>{descripcion}</p>
     </div>
-    <ItemCount stock={stock}/>
-
+    <ItemCount initial={0} stock={stock} onAdd={onAdd}  />
+<button className={style.button6}>Checkout</button>
     </div>
   )
 }

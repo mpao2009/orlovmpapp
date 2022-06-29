@@ -5,6 +5,8 @@ import style from "./NavBar.module.css"
 
 
 
+
+
 function Navbar () {
 
   return (
@@ -12,10 +14,13 @@ function Navbar () {
 <ul>
 
 <li> <Link className={style.linkClass} to='/'>HOME </Link>  </li>
-<li> <Link className={style.linkclass} to='category/1'>GAMES</Link></li>
-<li><Link className={style.linkclass} to='category/2'>SHOP SYSTEMS</Link></li>
-<li><Link className={style.linkclass} to='category/3'>ACCESORIES</Link></li>
-<CartWidget/>
+<li> <Link className={style.linkClass} to='category/1'>GAMES</Link></li>
+<li><Link className={style.linkClass} to='category/2'>SHOP SYSTEMS</Link></li>
+<li><Link className={style.linkClass} to='category/3'>ACCESORIES</Link></li>
+<li><Link className={style.linkClass} to="./Carrito"> <CartWidget /> </Link>  </li>
+
+
+
 
 </ul>
 
