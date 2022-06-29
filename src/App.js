@@ -6,8 +6,7 @@ import ItemListContainer from './components.js/ItemListContainer';
 import ItemDetailContainer from './components.js/ItemDetailContainer';
 import Carrito from './components.js/Carrito';
 import Checkout from './components.js/Checkout';
-
-
+import { MiProvider } from './components.js/CartContext';
 
 
 const App = () => {
@@ -15,20 +14,20 @@ const App = () => {
   return (
     <div className='App'>
       <BrowserRouter>
-        <Navbar />
-        <Header/>
-        
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/detail/:id" element={<ItemDetailContainer />} />
-          <Route path="/Carrito" element={<Carrito/>}/>
-          <Route path="/Checkout" element={<Checkout/>}/>
-        </Routes>
-        
+        <MiProvider>
+          <Navbar />
+          <Header />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/category/:categoryId" element={<ItemListContainer />} />
+            <Route path="/detail/:id" element={<ItemDetailContainer />} />
+            <Route path="/Carrito" element={<Carrito />} />
+            <Route path="/Checkout" element={<Checkout />} />
+          </Routes>
+          </MiProvider>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App

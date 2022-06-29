@@ -1,4 +1,4 @@
-const productos = [
+ const productos = [
     {
         id: 1,
         name: " New Super Mario Bros.™ U Deluxe",

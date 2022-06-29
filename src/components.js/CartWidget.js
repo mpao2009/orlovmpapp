@@ -1,16 +1,27 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import style from "./NavBar.module.css"
+import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
+import { contexto } from './CartContext'
 
 
-function CartWidget() {
+
+const CartWidget = () => {
+
+  const resultado = useContext(contexto)
+  console.log(resultado)
+
+  /*setTimeout(() => {
+    resultado.setCarrito(["1", "2", "3"])
+
+  },500)*/
 
   return (
     <div>
-      <span class="material-symbols-outlined">
-        shopping_cart
-     
-  </span>
+      <span class="material-symbols-outlined ">
+        <i class="material-icons">shopping_cart</i>
+        <NavLink  to="/Carrito">CARRITO </NavLink>
+
+        </span>
     </div>
 
   )

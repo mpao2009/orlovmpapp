@@ -8,9 +8,9 @@ function ItemDetail({name, id, descripcion, stock, price, image}) {
  const onAdd = (cantidadSeleccionada) => {
     console.log(cantidadSeleccionada 
         + " agregado al carrito" + name)
+
  }
 
- 
 return (
 
     <div className={style.coupon}>
