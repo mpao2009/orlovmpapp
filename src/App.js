@@ -6,7 +6,7 @@ import ItemListContainer from './components.js/ItemListContainer';
 import ItemDetailContainer from './components.js/ItemDetailContainer';
 import Carrito from './components.js/Carrito';
 import Checkout from './components.js/Checkout';
-import { MiProvider } from './components.js/CartContext';
+import MyProvider  from './components.js/CartContext';
 
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div className='App'>
       <BrowserRouter>
-        <MiProvider>
+        <MyProvider>
           <Navbar />
           <Header />
           <Routes>
@@ -24,7 +24,7 @@ const App = () => {
             <Route path="/Carrito" element={<Carrito />} />
             <Route path="/Checkout" element={<Checkout />} />
           </Routes>
-          </MiProvider>
+          </MyProvider>
       </BrowserRouter>
     </div>
   )

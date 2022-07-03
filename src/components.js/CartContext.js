@@ -1,70 +1,73 @@
-import { createContext , useState} from "react"
+import { createContext, useState } from "react"
+import React from 'react'
 
 
 
 
-export const contexto = createContext()
+export const CartContext = createContext()
 
-const Provider = contexto.Provider
+const MyProvider = ({ children }) => {
 
+    const [Carrito, setCarrito] = useState([])
 
-
-export const MiProvider = ({children}) => {
-    const [cantidadTotal, setCantidadTotal] = useState(0)
-    const [carrito, setCarrito] = useState([])
-    const [total, setTotal] = useState(0)
-    const [cantidad, setCantidad] = useState(0)
-
-
-   const agregar = (item) => {
-        setCantidadTotal(cantidadTotal.concat(item))
-        setCarrito(carrito.concat(item))
-        setCantidad(cantidad + 1)
-        setTotal(total + item.price)
+    const isInCart = (id) => {
+        return Carrito.find(item => item.id === id)
     }
 
-    const eliminar = (item) => {
-        setCantidadTotal(cantidadTotal.filter(i => i.id !== item.id))
-        setCarrito(carrito.filter(i => i.id !== item.id))
-        setCantidad(cantidad - 1)
-        setTotal(total - item.price)
+    const addItem = (id, item, quantity) => {
+        const newItem = {
+            id,
+            item,
+            quantity
+
+        }
+        if (isInCart(newItem.id)) {
+            const findItem = Carrito.find(item => item.id === newItem.id)
+            const productIndex = Carrito.indexOf(findItem)
+            const auxArray = [...Carrito]
+            auxArray[productIndex].quantity += newItem.quantity
+            setCarrito(auxArray)
+
+        } else {
+            setCarrito([...Carrito, newItem])
+        }
     }
 
-    const limpiar = () => {
-        setCantidadTotal([])
+    const emptyItem = (id) => {
         setCarrito([])
-        setCantidad(0)
-        setTotal(0)
+
     }
 
-    const valorDelContexto = {
-        cantidadTotal,
-        setCantidadTotal,
-        carrito,
-        setCarrito,
-        total,
-        setTotal,
-        cantidad,
-        setCantidad,
-        agregar,
-        eliminar,
-        limpiar
+    const deleteItem = (id) => {
+        return Carrito.filter(item => item.id !== id)
+
     }
+   
+ const getItemPrice = (id) => {
+        return Carrito.reduce((acc, item) => acc + (item.id === id ? item.quantity * item.price : 0), 0)
+    }
+    const getItemQty= (id) => {
+
+        return Carrito.reduce((acc, x) => acc + x.quantity, 0 );
+        
+    }
+
 
     return (
-        <Provider value={valorDelContexto}>
+        <MyProvider value={{Carrito ,addItem, isInCart, deleteItem, emptyItem,getItemQty, getItemPrice}}>
             {children}
-        </Provider>
+        </MyProvider>
     )
+
 }
 
+export default MyProvider
 
-   /* const valorDelContexto={
-     carrito:[],   
-     cantidadTotal:0,
-     precioTotal:0,
-    }*/
-   // valorDelContexto.cantidadTotal=1
 
-   
+
+
+
+
+
+
 

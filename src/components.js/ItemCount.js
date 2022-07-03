@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import style from "./ItemCount.module.css";
 
+function ItemCount({ stock, onAdd, initial }) {
 
-
-
-
-function ItemCount({ stock, onAdd }) {
-
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(initial)
 
 
   function adding() {
@@ -25,7 +21,7 @@ function ItemCount({ stock, onAdd }) {
     onAdd(count)
 
     return () => {
-      console.log("Item Agregado Exitosamente")
+      //console.log("Item Agregado Exitosamente")
     }
 
   }
