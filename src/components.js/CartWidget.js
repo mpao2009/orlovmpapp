@@ -1,43 +1,16 @@
-import React from 'react'
-import {NavLink} from 'react-router-dom'
+import React, { useContext } from 'react'
+import { BsFillCartFill } from "react-icons/bs"
+import { MiContexto } from '../context/CartContext';
+import { Badge } from "react-bootstrap"
 
 
+export const CartWidget = () => {
+  const { getItemQty } = useContext(MiContexto);
 
-const CartWidget = () => {
-  
-    return (
-      <div className='cart-widget'>
-        <CartWidget />
-        
-          <i class="material-icons">shopping_cart</i>
-          <NavLink  to="/Carrito">CARRITO </NavLink>
-  
-          
-      </div>
-    )
+  return (
+    <>
+    <li className='header__links'><BsFillCartFill />{(getItemQty() === 0) ? "" : <Badge pill bg="danger">{ getItemQty() }</Badge>}</li>
+    
+    </>
+  )
 }
-
-export default CartWidget
-
-
-
-
-
-  
-
-  // const {Carrito, addItem, isInCart, deleteItem, emptyItem,getItemQty, getItemPrice} = useContext(CartContext);
-  
-  //console.log(resultado)
-
-  /*setTimeout(() => {
-    resultado.setCarrito(["1", "2", "3"])
-
-  },200)*/
-
-  //console.log(resultado)
-  
-
-
-
-
-

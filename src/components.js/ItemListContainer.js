@@ -1,35 +1,52 @@
-import React, { useEffect, useState } from 'react'
-import {customFetch, getProductsByCategory} from '../utils/CustomFetch'
-import { useParams } from 'react-router-dom'
-import ItemList from './ItemList'
-import style from './ItemListContainer.module.css'
+import React from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ItemList from "./ItemList";
+import { Loading } from "./Loading";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
+export const ItemListContainer = () => {
+  const { categoryId } = useParams();
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
+  useEffect(() => {
+    const db = getFirestore();
+    const productsCollection = collection(db, "productos");
 
-function ItemListContainer() {
-    const [items, setItems] = useState([])
+    if (categoryId) {
+      const q = query(productsCollection, where("category", "==", categoryId));
+      getDocs(q)
+        .then((snapshot) => {
+          setItems(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        })
+        .catch((error) => {
+          setError(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      getDocs(productsCollection)
+        .then((snapshot) => {
+          setItems(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        })
+        .catch((err) => {
+          setError(err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  }, [categoryId]);
 
-    const { categoryId } = useParams()
-    console.log(typeof categoryId)
-
-    useEffect(() => {
-      if(!categoryId) {
-        customFetch().then(response => {
-          setItems(response)
-          })
-      } else {
-          getProductsByCategory(categoryId).then(response => {
-            setItems(response)
-          })
-      }
-  }, [categoryId])
-
-  return (
-    <div className={style.container}>
-      {items?.length <= 0 ? <h1>No hay items</h1> : <ItemList products={items} />}
-       
-    </div>
-  )
-}
-
-export default ItemListContainer
+  return <>{loading ? <Loading /> : <ItemList items={items} />}</>;
+};

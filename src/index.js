@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from "./App"
 
-import "./estilos.css"
+
 
 //Mostrar la App en el Dom
 const root = ReactDOM.createRoot(document.getElementById('root'));

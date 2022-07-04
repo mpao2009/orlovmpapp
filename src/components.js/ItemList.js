@@ -1,15 +1,13 @@
-import React from 'react'
-import Item from './Item'
+import React from 'react';
+import Item from "./Item";
 
-function ItemList({products}) {
+export default function ItemList({ items }) {
   return (
-    products.map(p => 
-        <Item
-        key={p.id}
-        {...p}
-        />
-        )
+    <>
+    <section style={ {display:"flex", flexWrap:"wrap", justifyContent: "center", alignItems:"center"} }>
+        {items.map(item => <Item key={item.id} item = { item } />)}
+    </section>
+    </>
+    
   )
 }
-
-export default ItemList

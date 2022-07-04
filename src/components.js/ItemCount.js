@@ -1,46 +1,42 @@
-import React, { useState } from "react";
-import style from "./ItemCount.module.css";
-
-function ItemCount({ stock, onAdd, initial }) {
-
-  const [count, setCount] = useState(initial)
+import React, { useEffect, useState } from 'react'
+import { Card, Button, ButtonGroup }from "react-bootstrap"
+import "../css/itemCount.css"
+import swal from 'sweetalert'
 
 
-  function adding() {
-    if (count < stock) {
+export default function ItemCount({ stock, initial, onAdd }) {
+  const [count, setCount] = useState(initial);
+
+  useEffect(() => { 
+    if(count >= stock) {
+      console.log("Pedido sobrepasa el stock")
+      swal("Alerta",`Solo puedes ordenar un máximo de ${ stock } unidades de este producto.`, "info")
+    }
+  }, [count])
+  
+  const restar = () => {
+    count > initial ? setCount(count - 1) : console.log("la cantidad del pedido no puede ser menor"); 
+  }
+
+  const sumar = () => {
+    if((count >= 1) && (count < stock)) {
       setCount(count + 1)
     }
   }
 
-  function subs() {
-    if (count > 0) {
-      setCount(count - 1)
-    }
-  }
-  const addToCart = (e) => {
-    onAdd(count)
-
-    return () => {
-      //console.log("Item Agregado Exitosamente")
-    }
-
-  }
-
-  
   return (
-    <div onClick={(e)=>{console.log(e.currentTarget)}}>
-
-      <button className={style.button3} onClick={subs}>-</button>
-      <span className={style.number}>{count}</span>
-      <button className={style.button4} onClick={adding}>+</button>
-      {
-        count > 0 ? <button className={style.button5} onClick={addToCart()}>Agregar al carrito</button> : <></>
-      }
-    </div>
-  );
-};
-
-
-export default ItemCount;
-
-
+    <Card style={{marginInline: "10rem"}}>
+      <ButtonGroup style={{marginInline: "2rem"}}>
+          <Button className='btn-menosmas' onClick={ restar }>-</Button>
+          <input type="number" style={{"textAlign": "center"}} value={ count } readOnly/>
+          <Button className='btn-menosmas' onClick={ sumar }>+</Button>
+      </ButtonGroup>
+      <Button onClick={() => onAdd(count)} className="btn-add" style={{"marginTop": "1rem", marginInline: "2rem"}}>
+          Añadir
+      </Button>
+      <Button onClick={()=> { setCount(initial) }} variant="light" style={{"marginTop": "1rem", marginInline: "2rem"}}>
+        Reset
+      </Button>
+  </Card>
+  )
+}

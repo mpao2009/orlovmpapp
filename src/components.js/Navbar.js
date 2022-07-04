@@ -1,32 +1,30 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import CartWidget from './CartWidget'
-import style from "./NavBar.module.css"
+import React from "react";
+import Logo from "../images/logo2.jpg"
+import { CartWidget } from "./CartWidget";
+import { Link } from "react-router-dom";
+import " ./Navbar.css";
 
 
 
 
 
-function Navbar () {
-
-  return (
-    <div className={style.Navbar}>
-<ul>
-
-<li> <Link className={style.linkClass} to='/'>HOME </Link>  </li>
-<li> <Link className={style.linkClass} to='category/1'>GAMES</Link></li>
-<li><Link className={style.linkClass} to='category/2'>SHOP SYSTEMS</Link></li>
-<li><Link className={style.linkClass} to='category/3'>ACCESORIES</Link></li>
-<li><Link className={style.linkClass} to="./Carrito"> <CartWidget /> </Link>  </li>
+export const Navbar = () => {
 
 
-
-
-</ul>
-
- </div>
- 
-  )
+    return (
+        <header className="header">
+            <div className="logo">
+                <Link to="/"> <img className="header__logo" src= { Logo } alt="logo de la tienda"/>
+                <h2 className="header__nombre" style={{display:"inline-block"}}>Runners Riot</h2></Link>
+            </div>
+            <ul className="header__navegacion">
+                <Link to="./Inicio" style={{textDecoration:"none"}}><li className="header__links">Inicio</li></Link>
+                <Link to="./category/jordan" style={{textDecoration:"none"}}><li className="header__links">Air Jordans</li></Link>
+                <Link to="./category/yeezy" style={{textDecoration:"none"}}><li className="header__links">Yeezys</li></Link>
+                <Link to="./category/converse" style={{textDecoration:"none"}}><li className="header__links">Converse</li></Link>
+                <Link to="./Carrito" style={{textDecoration:"none"}}><li className="header__links"> Mi Carrito</li></Link>
+                <Link to="./Carrito"> <CartWidget /> </Link>
+            </ul>
+        </header>
+    )
 }
-
-export default Navbar
