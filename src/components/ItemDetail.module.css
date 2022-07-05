@@ -1,0 +1,42 @@
+body {
+    font-family: Arial;
+  }
+  
+  .coupon {
+    margin-top: 10px;
+    border: black solid 5px;
+    width:50%;
+    border-radius: 10px ;
+    margin: 0 auto;
+ 
+  }
+  .imageDetail {
+    height: 300px;
+    width: 300px;
+  }
+  .container {
+    padding: 2px 16px;
+    background-color: rgb(246, 246, 105);
+  }
+  
+  .promo {
+    background: grey;
+    padding: 3px;
+  }
+  
+  .expire {
+    color: red;
+  }
+  .button6{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }

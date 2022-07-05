@@ -1,0 +1,42 @@
+/*-----NAVBAR-----*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffF;
+    z-index: 9999;
+    padding-block: 1rem;
+    background-color: #495057;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    margin-inline: 2rem;
+}
+.header__logo {
+    max-width: 8%;
+}
+.header__nombre {
+    font-weight: 600;
+    margin-inline: 0.8rem;
+    font-size:1.725em;
+    color: var(--clrSecondary);
+}
+.header__navegacion {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1rem;
+    width: 50vw;
+}
+.header__links {
+    text-decoration: none;
+    color: var(--clrMain);
+    cursor: pointer;
+}
+.header__links:focus,
+.header__links:hover {
+    color: var(--clrAccent);
+}
