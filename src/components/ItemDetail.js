@@ -2,22 +2,27 @@ import React, { useContext, useState } from 'react'
 import ItemCount from './ItemCount'
 import style from './ItemDetail.module.css'
 import { CartContext } from '../context/CartContext'
+import swal from 'sweetalert'
 
 
 
-function ItemDetail({ detalle, image, price, stock, id, descripcion }) {
+function ItemDetail({  image, price, stock, id, descripcion }) {
 
     const [qty, setQty] = useState(1)
 
-    const [mostrar, setMostrar] = useState()
+    const [setMostrar] = useState()
     const { isInCart, addItem } = useContext(CartContext)
 
-    const onAdd = () => {
-        //console.log(qty)
-        alert(` Agregado al carrito ${qty}`)
-        isInCart(detalle,id)
-        addItem(detalle, qty)
-        setMostrar()//mostrar carrito link
+    const onAdd = (getItemQty) => {
+        alert(` Agregado al carrito ${getItemQty}`)
+        swal({
+            title: "Éxito",
+            text: "Se han agregado los productos al carrito",
+            icon: "success",
+            button: "OK"
+        });
+        
+        
     }
 
     return (
@@ -26,12 +31,12 @@ function ItemDetail({ detalle, image, price, stock, id, descripcion }) {
             <div className={style.container}>
 
             </div>
-            <img src={image} alt={id} className={style.detalle} />
+            <img src={image} alt={id} className={style.name} />
             <div className={style.container} >
                 <h2><b>$ {price}</b></h2>
                 <p>{descripcion}</p>
             </div>
-            <ItemCount  qty={qty} setQty={setQty} stock={stock} onAdd={onAdd} />
+            <ItemCount initial={1} qty={qty} setQty={setQty} stock={stock} onAdd={onAdd} />
             <button className={style.button6}>Checkout</button>
         </div>
     )

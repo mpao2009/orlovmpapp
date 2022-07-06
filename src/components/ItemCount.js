@@ -4,9 +4,9 @@ import style from "./ItemCount.module.css";
 
 
 
-function ItemCount({ stock, onAdd }) {
+function ItemCount({ stock, onAdd , initial}) {
 
-  const [qty, setQty] = useState(1)
+  const [qty, setQty] = useState(initial)
 
 
   function adding() {
@@ -20,10 +20,12 @@ function ItemCount({ stock, onAdd }) {
       setQty(qty - 1)
     }
   }
-  const addToCart = () => {
+  const addToCart = (e) => {
     onAdd(qty)
 
     return () => {
+      setQty(initial)
+      
       console.log("Item Agregado Exitosamente")
     }
 
@@ -31,13 +33,13 @@ function ItemCount({ stock, onAdd }) {
 
   return (
     <div onClick={(e)=>{console.log(e.currentTarget)}}>
-
+      
+      
       <button className={style.button3} onClick={subs}>-</button>
-      <span className={style.number}>{qty}</span>
+      <span className={style.number}> {qty}</span>
       <button className={style.button4} onClick={adding}>+</button>
-      {
-        qty > 0 ? <button className={style.button5} onClick={()=>{onAdd()}}>Agregar al carrito</button> : <></>
-      }
+      <button className={style.button5} onClick={addToCart}>Agregar al carrito</button> 
+      
     </div>
   );
 };

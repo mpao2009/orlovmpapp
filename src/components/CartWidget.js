@@ -1,30 +1,38 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
+import{useState} from 'react'
 
 
 
 
 const CartWidget = () => {
 
-  const {getItemQty}=useContext(CartContext)
+  const resultado = useContext(CartContext)
+  console.log(resultado)
+  
   
 
-  /*setTimeout(() => {
-    resultado.setCarrito(["1", "2", "3"])
-
-  },500)*/
+  
+  //console.log(resultado)
 
   return (
-    <div>
-      <div badgeContent={(getItemQty)} class="material-symbols-outlined ">
-        <i class="material-icons">shopping_cart</i>
-        <NavLink  to="/Carrito">CARRITO </NavLink>
+    
+    <NavLink to="/Carrito">CARRITO{resultado.itemQty}</NavLink>
 
-        </div>
-    </div>
 
   )
+
+
+
+
 }
 
-export default CartWidget
+  
+  export default CartWidget 
+
+  
+  
+  
+
+  
