@@ -5,14 +5,7 @@ import style from "./NavBar.module.css"
 
 function Navbar () {
   
-    
-    
-    
-    
-    
-    
-
-  return (
+    return (
     <div className={style.Navbar}>
 <ul>
 

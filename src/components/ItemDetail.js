@@ -1,17 +1,16 @@
-import React, { useContext, useState } from 'react'
-import ItemCount from './ItemCount'
+import React, {  useState } from 'react'
 import style from './ItemDetail.module.css'
-import { CartContext } from '../context/CartContext'
 import swal from 'sweetalert'
+import ItemCount from './ItemCount'
 
 
 
-function ItemDetail({  image, price, stock, id, descripcion }) {
+function ItemDetail({ image, price, stock, id, descripcion }) {
 
     const [qty, setQty] = useState(1)
 
-    const [setMostrar] = useState()
-    const { isInCart, addItem } = useContext(CartContext)
+    
+    
 
     const onAdd = (getItemQty) => {
         alert(` Agregado al carrito ${getItemQty}`)
@@ -22,24 +21,33 @@ function ItemDetail({  image, price, stock, id, descripcion }) {
             button: "OK"
         });
         
+
         
+        }
+    const onClick = (e) => {
+        console.log(e.currentTarget)
+
     }
 
     return (
 
+
         <div className={style.coupon}>
             <div className={style.container}>
+                
+                </div >
+                <img src={image} alt={id} className={style.name} />
+                <div className={style.container} >
+                    <h2><b>$ {price}</b></h2>
+                    <p>{descripcion}</p>
 
-            </div>
-            <img src={image} alt={id} className={style.name} />
-            <div className={style.container} >
-                <h2><b>$ {price}</b></h2>
-                <p>{descripcion}</p>
-            </div>
-            <ItemCount initial={1} qty={qty} setQty={setQty} stock={stock} onAdd={onAdd} />
-            <button className={style.button6}>Checkout</button>
-        </div>
-    )
-}
+                    <ItemCount stock={stock} onAdd={onAdd} initial={qty}  />
+                    
+                 </div >
+            </div >
+        
 
-export default ItemDetail
+              )
+}              
+
+  export default ItemDetail

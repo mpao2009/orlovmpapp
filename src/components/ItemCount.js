@@ -1,13 +1,17 @@
-import React, {useState}from "react";
+import React, { useState } from "react";
 import style from "./ItemCount.module.css";
+import { Link } from "react-router-dom";
 
 
 
 
-function ItemCount({ stock, onAdd , initial}) {
+function ItemCount({ stock, onAdd, initial }) {
 
   const [qty, setQty] = useState(initial)
-
+  const [toggle, setToggle] = useState(false)
+  const handleToggle = () => {
+    setToggle(!toggle)
+  }
 
   function adding() {
     if (qty < stock) {
@@ -25,26 +29,30 @@ function ItemCount({ stock, onAdd , initial}) {
 
     return () => {
       setQty(initial)
-      
-      console.log("Item Agregado Exitosamente")
+
+      // console.log("Item Agregado Exitosamente")
     }
 
   }
 
   return (
-    <div onClick={(e)=>{console.log(e.currentTarget)}}>
-      
-      
+    <div onClick={(e) => { console.log(e.currentTarget) }}>
+
+
       <button className={style.button3} onClick={subs}>-</button>
       <span className={style.number}> {qty}</span>
       <button className={style.button4} onClick={adding}>+</button>
-      <button className={style.button5} onClick={addToCart}>Agregar al carrito</button> 
-      
-    </div>
-  );
-};
+{toggle ? <button className={toggle ? "success" : "danger"} onClick={addToCart}></button> :
 
+          <Link to="/Carrito" variant="danger"><button className={toggle? "succes":"danger" } onClick={addToCart}>Agregar</button></Link>
+      }
+   </div>
+   
+   
+    )   
+ }
 
-export default ItemCount;
+   export default ItemCount
+
 
 

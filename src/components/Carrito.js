@@ -4,7 +4,7 @@ import { useContext, useState } from 'react'
 import {Link} from 'react-router-dom'
 
 
-function Carrito() {
+const Carrito=()=> {
     const { carrito } = useContext(CartContext)
     const [nombre, setNombre] = useState('')
     const [tel, setTel] = useState('')
@@ -13,7 +13,7 @@ function Carrito() {
          nombre: '',
          tel: '',
          email: '',
-         usuario: ''
+         usuario: '',
         })
 
     const handleSubmit = (e) => {
@@ -33,18 +33,17 @@ function Carrito() {
     }
 
     const handleChange = (e) => {
-        setUsuario({ usuario, [e.target.name]: e.target.value })
+        setUsuario({ ...usuario, [e.target.name]: e.target.value })
 
     }
 
 
+
     return (
         <div>
-            <h2>carritoooo</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur omnis necessitatibus veritatis a dolorem aliquam cumque dicta suscipit doloribus, vel similique sint cupiditate eligendi assumenda possimus eius porro autem reprehenderit.</p>
-
-
-            <form onSubmit={handleSubmit}>
+            <h2>CARRITO</h2>
+            
+<form onSubmit={handleSubmit}>
                 <div>
                     <input onChange={handleChange} type="Email" placeholder="Email..." value={email} />
                 </div>
@@ -58,12 +57,16 @@ function Carrito() {
                     <input onChange={handleChange} type="text" placeholder="Usuario..." value={usuario} />
                 </div>
                 <div>
-                    <button onClick={handleclick}>Enviar</button>
+                    <button onClick={handleclick}><Link to="/Checkout">CHECKOUT</Link> </button>
                 </div>
             </form>
-            <Link to="/Checkout"> Proceder a la compra</Link>
+           
         </div>
+        
     )
+
+    
+
 }
 
 export default Carrito
