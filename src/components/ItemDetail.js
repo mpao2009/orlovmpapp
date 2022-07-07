@@ -13,7 +13,14 @@ function ItemDetail({ image, price, stock, id, descripcion }) {
     
 
     const onAdd = (getItemQty) => {
-        alert(` Agregado al carrito ${getItemQty}`)
+        console.log(getItemQty)
+
+
+        //alert(` Agregado al carrito ${getItemQty}`)
+        setQty(getItemQty)
+
+       
+    
         swal({
             title: "Éxito",
             text: "Se han agregado los productos al carrito",
@@ -22,8 +29,11 @@ function ItemDetail({ image, price, stock, id, descripcion }) {
         });
         
 
+    
+    }
         
-        }
+        
+
     const onClick = (e) => {
         console.log(e.currentTarget)
 
